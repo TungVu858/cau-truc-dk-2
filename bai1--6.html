@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="num">
+<input id="num2">
+<button onclick="tinh()">Tính độ F</button>
+<button onclick="tinh1()">Tính feet</button>
+<button onclick="tinh2()">Diện tích hình vuông</button>
+<button onclick="tinh3()">Diện tích hình chữ nhật</button>
+<button onclick="tinh4()">Diện tích tam giác vuông</button>
+<button onclick="tinh5()">Giải pt bậc 1</button>
+<p id="result"></p>
+<script>
+    function tinh() {
+        let num = +document.getElementById('num').value;
+
+        document.getElementById('result').innerHTML = "Độ F :" + (num * 9 / 5 + 32) + ",Độ C nhập là:" + num;
+    }
+
+    function tinh1() {
+        let num = +document.getElementById('num').value;
+        document.getElementById('result').innerHTML = "Feet:" + num * 3.2808 + ",m:" + num;
+    }
+
+    function tinh2() {
+        let num = +document.getElementById('num').value;
+        document.getElementById('result').innerHTML = "Diện tích:" + num * num;
+    }
+
+    function tinh3() {
+        let num = +document.getElementById('num').value;
+        let num2 = +document.getElementById('num2').value;
+        document.getElementById('result').innerHTML = "Diện tích:" + num * num2;
+    }
+
+    function tinh4() {
+        let num = +document.getElementById('num').value;
+        let num2 = +document.getElementById('num2').value;
+        document.getElementById('result').innerHTML = "Diện tích:" + (num * num + num2 * num2);
+    }
+
+    function tinh5() {
+        let num = +document.getElementById('num').value;
+        let num2 = +document.getElementById('num2').value;
+        let rt = "";
+        if (num === 0 && num2 === 0) {
+            rt = "Vô số nghiệm"
+        } else if (num2 === 0) {
+            rt = "Nghiệm : 0"
+        } else if (num === 0 && num2 != 0) {
+            rt = "Vô nghiệm"
+        } else {
+            rt = "Nghiệm:" + (-num2 / num);
+        }
+        document.getElementById('result').innerHTML = rt;
+    }
+</script>
+</body>
+</html>

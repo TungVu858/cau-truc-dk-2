@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    p{
+        font-weight: bold;
+    }
+    table{
+        background-color: #ccc;
+    }
+    button{
+        width: 70px;
+        background-color: aqua;
+        border-radius: 10px;
+        border-color: #cccccc;
+    }
+</style>
+<h1>Tính thuế thu nhập cá nhân</h1>
+<table>
+    <tr>
+        <td>Chọn mức thu nhập</td>
+        <td><select id="check" style="width: 170px">
+            <option value="1">Dưới 5 triệu</option>
+            <option value="2">5 triệu đến 10 triệu</option>
+            <option value="3">10 triệu đến 18 triệu</option>
+            <option value="4">18 triệu đến 32 triệu</option>
+            <option value="5">32 triệu đến 52 triệu</option>
+            <option value="6">52 triệu đến 80 triệu</option>
+            <option value="7">Trên 80 triệu</option>
+        </select>
+        </td>
+        <td>VND</td>
+    </tr>
+    <tr>
+        <td>Nhập mức thu nhập</td>
+        <td><input id="nhap"></td>
+        <td>VND</td>
+    </tr>
+    <tr>
+        <td>Tiền thuế</td>
+        <td><p id="result">VND</p></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><button onclick="tinh()">Tính</button></td>
+        <td></td>
+    </tr>
+</table>
+<script>
+    function tinh() {
+        let nhap = document.getElementById('nhap').value;
+        let check = document.getElementById('check').value;
+        rt ="";
+        if (nhap>0){
+            switch (check){
+                case '1': rt = nhap*0.05;
+                break;
+                case '2':rt = 5000000*0.05 + (nhap-5000000)*0.1;
+                break;
+                case '3':rt = 5000000*0.005 +5000000*0.1+(nhap-10000000)*0.15;
+                break;
+                case '4':rt = 5000000*0.05 + 5000000*0.1 + 8000000*0.15 + (nhap-180000000)*0.2;
+                break;
+                case '5':rt = 5000000*0.05 + 5000000*0.1 +80000000*0.15 + 140000000*0.2 + (nhap-32000000)*0.25;
+                break;
+                case '6':rt = 5000000*0.05 + 5000000*0.1 +80000000*0.15 + 140000000*0.2 + 200000000*0.25 + (nhap-52000000)*0.3;
+                break;
+                case '7':rt = 5000000*0.05 + 5000000*0.1 +80000000*0.15 + 140000000*0.2 + 200000000*0.25 + 280000000*0.3 + (nhap-80000000)*0.35;
+                break;
+            }
+        } else {
+            alert("nhập số khác 0 và không âm")
+        }
+        document.getElementById('result').innerHTML = rt +" "+"VND";
+    }
+</script>
+</body>
+</html>

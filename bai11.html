@@ -16,19 +16,19 @@
         if (nhap<=5000000&&nhap>0){
             tien = nhap*0.05;
         } else if (nhap<=10000000){
-            tien = nhap*0.1;
+            tien = 5000000*0.05 + (nhap-5000000)*0.1;
         } else if (nhap<=18000000){
-            tien = nhap*0.15;
+            tien = 5000000*0.005 +5000000*0.1+(nhap-10000000)*0.15;
         } else if (nhap<=32000000){
-            tien = nhap*0.2;
+            tien = 5000000*0.05 + 5000000*0.1 + 8000000*0.15 + (nhap-180000000)*0.2;
         } else if (nhap<=52000000){
-            tien = nhap*0.25;
+            tien = 5000000*0.05 + 5000000*0.1 +80000000*0.15 + 140000000*0.2 + (nhap-32000000)*0.25;
         } else if (nhap<=80000000){
-            tien = nhap*0.3;
+            tien = 5000000*0.05 + 5000000*0.1 +80000000*0.15 + 140000000*0.2 + 200000000*0.25 + (nhap-52000000)*0.3;
         } else {
-            tien = nhap*0.35;
+            tien = 5000000*0.05 + 5000000*0.1 +80000000*0.15 + 140000000*0.2 + 200000000*0.25 + 280000000*0.3 + (nhap-80000000)*0.35;
         }
-        document.getElementById('total').innerHTML ="Tiền thuế là :"+tien+"VND";
+        document.getElementById('total').innerHTML ="Tiền thuế là :"+tien+ " "+"VND";
     }
 </script>
 </body>

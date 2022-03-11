@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính lãi ngân hàng</title>
+</head>
+<body>
+<style>
+    button{
+        width: 60px;
+        border-radius: 5px;
+        background-color: #d7161d;
+        color: white;
+        border-color: #ccc;
+    }
+    p{
+        font-weight:bold ;
+    }
+    table{
+        background-color: #ccc;
+    }
+</style>
+<h1>Tính lãi ngân hàng</h1>
+<table>
+    <tr>
+        <td>Nhập số tiền</td>
+        <td><input id="nhap"></td>
+        <td>VND</td>
+    </tr>
+    <tr>
+        <td>Nhập kỳ hạn tính lãi</td>
+        <td><input id="nhapngay"></td>
+        <td><select id="check" >
+            <option value="1">Ngày</option>
+            <option value="2">Tháng</option>
+        </select></td>
+    </tr>
+    <tr>
+        <td>Lãi suất</td>
+        <td> <input id="laisuot"></td>
+        <td>%năm</td>
+    </tr>
+    <tr>
+        <td>Tiền lãi</td>
+        <td><p id="result">VND</p></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><button onclick="tinh()">TÍNH</button></td>
+        <td></td>
+    </tr>
+</table>
+<script>
+    function tinh() {
+        let nhap = document.getElementById('nhap').value;
+        let ngay = document.getElementById('nhapngay').value;
+        let laisuot = document.getElementById('laisuot').value;
+        let check = document.getElementById('check').value;
+        tr = "";
+        // if (ngay>0){
+        //     tr = nhap*ngay*laisuot/100/365;}
+        if (ngay>0&&laisuot>=0&&nhap>=0){
+            switch (check){
+                case '1':tr = nhap*ngay*laisuot/100/365;
+                break;
+                case '2':tr = nhap*ngay*laisuot/100/12;
+                break;
+            }
+        } else {
+            alert("Xin mời nhập lại")
+        }
+        document.getElementById('result').innerHTML =tr +"   "+ "VND";
+    }
+</script>
+</body>
+</html>
